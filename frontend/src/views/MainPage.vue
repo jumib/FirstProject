@@ -24,6 +24,9 @@
         </template>
       </v-simple-table>
     </template>
+    <div
+          class="card-image"
+          :style="{ backgroundImage: 'url(' + require('/home/bitai/Downloads/background.jpg') + ')' }"></div>
   </Layout>
 </template>
 
@@ -48,3 +51,11 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.container {
+  height: 40px;
+  width: 40px;
+  background-image: url('/home/bitai/Downloads/background.jpg');
+}
+</style>

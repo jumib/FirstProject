@@ -7,15 +7,22 @@
           active-class="active">
           Home
       </router-link>
-      <router-link :to="{ name: 'MainPage' }"
-          class="nav-link"
-          active-class="active">
-          MainPage
-      </router-link>
-      <h2 align="center">hi</h2>
+      <h1 align="center">Today's House</h1>
+      <br>
+      <br>
       <div align="center">
         <br><span>{{ myinfo.auth }}, welcome !</span>
+        <br>
+        <br>
       </div>
+      <div align="center">
+        <span>Access the </span>
+        <router-link :to="{ name: 'MainPage' }"
+            class="nav-link"
+            active-class="active">
+            our site !
+        </router-link>
+            </div>
     </div>
     <div id="header" v-else>
       <button id="login" @click="$router.push('LoginPage')">
@@ -72,13 +79,13 @@ export default {
 
 <style scoped>
 div {
-  border: 1px solid #ccc;
+  border: ;
 }
 
 #header {
-  padding: 15px;
+  padding: 50px;
   margin-bottom: 15px;
-  margin: 5px 5px;
+  margin: 50px 5px;
 }
 
 img {

@@ -11,10 +11,12 @@
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <button type="submit">login</button>
+          <button type="submit">log in</button>
         </td>
         <td colspan="2" align="center">
-          <button type="submit">sign up</button>
+          <button id="login" @click="signup">
+            Signup
+          </button>
         </td>
       </tr>
     </table>
@@ -22,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'LoginForm',
   data () {
@@ -35,6 +38,9 @@ export default {
       console.log('LoginForm submit()')
       const { userid, password } = this
       this.$emit('submit', { userid, password })
+    },
+    signup () {
+      this.$router.push({ name: 'SignupPage' })
     }
   }
 }

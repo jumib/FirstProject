@@ -109,6 +109,31 @@ public class MemberController {
         return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 
+    @RequestMapping(value = "/signup",
+            method = RequestMethod.POST,
+            produces = "text/plain;charset=UTF-8")
+    public ResponseEntity<String> signup(@Validated @RequestBody Member member)
+            throws Exception {
+        log.info("setupAdmin: member.getUserName(): " + member.getUserName());
+        log.info("setupAdmin: service.countAll(): " + service.countAll());
+
+        if (service.countAll() == 0) {
+            String inputPassword = member.getUserPw();
+            member.setUserPw(passwordEncoder.encode(inputPassword));
+
+            member.setJob("signup");
+
+            service.signup(member);
+
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+        }
+
+        String message = messageSource.getMessage("common.cannotSetupAdmin",
+                null, Locale.KOREAN);
+
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
+
     @GetMapping("/myinfo")
     public ResponseEntity<MemberAuth> getMyInfo(
             @RequestHeader (name="Authorization") String header) throws Exception {

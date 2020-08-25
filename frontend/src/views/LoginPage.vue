@@ -1,6 +1,15 @@
 <template>
   <div align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2>Login</h2>
+    <br>
+    <br>
+    <br>
     <login-form @submit="onSubmit"/>
   </div>
 </template>

@@ -54,6 +54,22 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public void signup(Member member) throws Exception {
+        Member memEntity = new Member();
+        memEntity.setUserId(member.getUserId());
+        memEntity.setUserPw(member.getUserPw());
+        memEntity.setUserName(member.getUserName());
+
+        MemberAuth memberAuth = new MemberAuth();
+        memberAuth.setAuth("ROLE_GENERAL");
+
+        memEntity.addAuth(memberAuth);
+
+        repository.save(memEntity);
+
+    }
+
+    @Override
     public Member read(Long userNo) throws Exception {
         log.info("Member Service read()");
 

@@ -6,6 +6,10 @@ import Home from '../views/Home.vue'
 import LoginPage from '../views/LoginPage.vue'
 import AdminSetupPage from '../views/AdminSetupPage.vue'
 import MainPage from '../views/MainPage.vue'
+import SignupPage from '../views/SignupPage.vue'
+
+//
+import FavorPage from '../views/FavorPage.vue'
 
 Vue.use(VueRouter)
 
@@ -30,10 +34,24 @@ const routes = [
     }
   },
   {
+    path: '/SignupPage',
+    name: 'SignupPage',
+    components: {
+      default: SignupPage
+    }
+  },
+  {
     path: '/MainPage',
     name: 'MainPage',
     components: {
       default: MainPage
+    }
+  },
+  {
+    path: '/FavorPage',
+    name: 'FavorPage',
+    components: {
+      default: FavorPage
     }
   }
 ]
