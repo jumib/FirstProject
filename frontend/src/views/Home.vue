@@ -37,6 +37,12 @@
           active-class="active">
         Home
       </router-link>
+      <br>
+      <router-link :to="{ name: 'MainPage' }"
+          class="nav-link"
+          active-class="active">
+        MainPage
+      </router-link>
     </div>
   </div>
 </template>
@@ -104,5 +110,4 @@ img {
   font-weight: bold;
   float: right;
 }
-
 </style>

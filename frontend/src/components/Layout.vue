@@ -25,38 +25,17 @@
         <v-spacer></v-spacer>
 
         <!-- <slot name="menubar">
-        </slot> 슬롯 일단 숨겨놓기 (로그인, 회원가입 버튼)-->
+        </slot> -->
 
         <!-- 여기부터 우측 상단 아이콘 -->
           <v-on icon @click="$router.push('FavorPage')">
             <v-icon color="#FF7043">mdi-heart</v-icon>
           </v-on>
 
-          <v-menu
-            bottom
-            left
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                icon
-                color="#FF7043"
-                v-bind="attrs"
-                v-on="on"
-              >
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
-            </template>
+          <v-on icon @click="$router.push('LoginPage')">
+            <v-icon color="#FF7043">mdi-account</v-icon>
+          </v-on>
 
-            <v-list>
-              <v-list-item
-                v-for="(item, i) in items"
-                :key="i"
-                >
-                <v-list-item-title>{{ item.title }}
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
           <!-- 여기까지 -->
       </v-app-bar>
 
@@ -64,7 +43,7 @@
       <template>
            <!-- 요거는 왼쪽 상간 타이틀 쪽 메뉴바 의미, 필요한 옵션을 적절히 활용하면 됨(예제참고) -->
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title><div @click="home">Crawl Project</div></v-toolbar-title>
+            <v-toolbar-title><div @click="home"></div></v-toolbar-title>
             <v-spacer></v-spacer>
           <v-navigation-drawer
             v-model="drawer"
@@ -95,10 +74,21 @@
             <v-list dense>
               <v-list-item @click.stop="left = !left">
                 <v-list-item-action>
-                  <div>>>></div>
+                  <v-icon>mdi-exit-to-app</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title @click="suggest">Suggest</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+
+            <v-list dense>
+              <v-list-item @click.stop="left = !left">
+                <v-list-item-action>
+                  <v-icon>mdi-exit-to-app</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title @click="board">Board</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -154,7 +144,7 @@
                   </v-row>
                 </template>
             </v-row>
-          </template>
+      </template>
           <!-- 여기까지 메인 이미지파일 -->
 
       <v-container>
@@ -192,7 +182,7 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>jumi jjang</strong>
+          {{ new Date().getFullYear() }} — <strong>our our</strong>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -214,7 +204,7 @@ export default {
       'mdi-instagram'
     ],
     items: [
-      { title: 'my page' },
+      { title: 'login' },
       { title: 'my board' },
       { title: 'logout' },
       { title: 'c/s' }
@@ -232,6 +222,9 @@ export default {
     },
     savednews () {
       (window.location.pathname !== '/savednews/list') ? router.push('/savednews/list') : router.go(0)
+    },
+    board () {
+      this.$router.push({ name: 'VuetifyBoardListPage' })
     }
   }
 }

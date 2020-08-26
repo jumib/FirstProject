@@ -56,6 +56,12 @@ export default {
 .container {
   height: 40px;
   width: 40px;
-  background-image: url('/home/bitai/Downloads/background.jpg');
+  background-image: url("/home/bitai/Downloads/background.jpg");
+}
+#box2-1 {
+  width: 100px;
+  height: 100px;
+  background-image: url("/home/bitai/Downloads/background.jpg");
 }
 </style>
+<div id="box2-1"></div>
