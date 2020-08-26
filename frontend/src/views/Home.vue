@@ -25,6 +25,34 @@
             </div>
     </div>
     <div id="header" v-else>
+     <router-link :to="{ name: 'Home' }"
+              class="nav-link"
+              active-class="active">
+              Home
+          </router-link>
+          <h1 align="center">Today's House</h1>
+          <br>
+          <br>
+          <div align="center">
+            <br><span> welcome !</span>
+            <br>
+            <br>
+          </div>
+          <div align="center">
+            <span>Access the </span>
+            <router-link :to="{ name: 'Login' }"
+                class="nav-link"
+                active-class="active">
+                our site !
+            </router-link>
+                </div>
+
+
+
+
+
+
+
       <button id="login" @click="$router.push('LoginPage')">
         Login
       </button>

@@ -4,6 +4,12 @@
     <router-link :to="{ name: 'BoardRegisterPage' }">
       Create New Board
     </router-link>
+    <br>
+    <router-link :to="{ name: 'MainPage' }"
+        class="nav-link"
+        active-class="active">
+      MainPage
+    </router-link>
     <board-list-page-form :list-array="pageArray"/>
     <!-- 라우터는 게시판, 실질적 페이지네이션은 바로윗줄
     요렇게 다 다른데서 긁어올 수 있는게(연결 가능) 뷰의 장점이다 -->
