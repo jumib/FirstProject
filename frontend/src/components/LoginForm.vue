@@ -1,26 +1,30 @@
 <template>
-  <form @submit.prevent="submit">
-    <table>
-      <tr>
-        <td>Id</td>
-        <td><input type="text" v-model="userid"></td>
-      </tr>
-      <tr>
-        <td>Password</td>
-        <td><input type="password" v-model="password"></td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center">
-          <button type="submit">log in</button>
-        </td>
-        <td colspan="2" align="center">
-          <button id="login" @click="signup">
-            Signup
-          </button>
-        </td>
-      </tr>
-    </table>
-  </form>
+  <v-form @submit.prevent="submit">
+    <v-container>
+      <v-col cols="12" sm="6">
+        <v-text-field
+          v-model="userid"
+          label="id"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          v-model="password"
+          label="pw"
+          clearable
+        ></v-text-field>
+      </v-col>
+    </v-container>
+    <v-col class="text-center" cols="12" sm="4">
+      <div class="my-2">
+        <v-btn depressed small
+        type="submit">로그인</v-btn>
+      </div>
+      <div class="my-2">
+        <v-btn depressed small
+        id="login" @click="signup">회원가입</v-btn>
+      </div>
+    </v-col>
+  </v-form>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
+<Layout>
   <div>
-    <h3>Board List View</h3>
     <table border="1">
       <tr>
         <th align="center" width="80">No</th>
@@ -27,6 +27,7 @@
       </button>
     </div>
   </div>
+</Layout>
 </template>
 
 <script>

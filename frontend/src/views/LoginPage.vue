@@ -10,7 +10,7 @@
     <br>
     <br>
     <br>
-    <login-form @submit="onSubmit"/>
+    <login-form @submit="onSubmit" />
   </div>
 </template>
 

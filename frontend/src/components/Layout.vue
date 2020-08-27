@@ -1,168 +1,128 @@
 <template>
   <v-app id="inspire">
-    <v-card class="overflow-hidden">
-      <v-app-bar
-        absolute
-        color="white"
-        elevate-on-scroll
-        scroll-target="#scrolling-techniques-7"
-      >
+    <v-app-bar
+      app
+      clipped-right
+      color="white"
+    >
+     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+     <v-toolbar-title><div @click="$router.push('MainPage')">our home</div></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <slot name="menubar"></slot>
 
-        <v-app-bar-nav-text @click.stop="drawer = !drawer">
-         click me !
-        </v-app-bar-nav-text>
-        <v-spacer></v-spacer>
-
-        <v-text-field
-                append-icon=""
-                class="mx-4"
-                flat
-                hide-details
-                label="Search"
-                prepend-inner-icon=""
-                solo-inverted
-              ></v-text-field>
-        <v-spacer></v-spacer>
-
-        <!-- <slot name="menubar">
-        </slot> -->
-
-        <!-- 여기부터 우측 상단 아이콘 -->
-          <v-on icon @click="$router.push('FavorPage')">
-            <v-icon color="#FF7043">mdi-heart</v-icon>
-          </v-on>
-
-          <v-on icon @click="$router.push('LoginPage')">
-            <v-icon color="#FF7043">mdi-account</v-icon>
-          </v-on>
-
-          <!-- 여기까지 -->
-      </v-app-bar>
-
-      <!-- 여기부터 왼쪽 바 -->
       <template>
-           <!-- 요거는 왼쪽 상간 타이틀 쪽 메뉴바 의미, 필요한 옵션을 적절히 활용하면 됨(예제참고) -->
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title><div @click="home"></div></v-toolbar-title>
+        <div class="home">
+          <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+          <div id="header" v-if="isAuthorized">
+            <button id="login" @click="onClickLogout" >Logout</button>
+          </div>
+          <div id="header" v-else>
+            <button id="login" @click="$router.push('LoginPage')">
+            <v-icon>mdi-account</v-icon>
+              Login
+            </button>
             <v-spacer></v-spacer>
-          <v-navigation-drawer
-            v-model="drawer"
-            app
-          >
-            <v-list dense>
-              <v-list-item @click.stop="left = !left">
-                <v-list-item-action>
-                  <v-icon>mdi-exit-to-app</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title @click="home">Home</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-
-            <v-list dense>
-              <v-list-item @click.stop="left = !left">
-                <v-list-item-action>
-                  <v-icon>mdi-exit-to-app</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title @click="category">Category</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-
-            <v-list dense>
-              <v-list-item @click.stop="left = !left">
-                <v-list-item-action>
-                  <v-icon>mdi-exit-to-app</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title @click="suggest">Suggest</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-
-            <v-list dense>
-              <v-list-item @click.stop="left = !left">
-                <v-list-item-action>
-                  <v-icon>mdi-exit-to-app</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title @click="board">Board</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-
-            <v-list dense>
-              <v-list-item @click.stop="left = !left">
-                <v-list-item-action>
-                  <v-icon>mdi-exit-to-app</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title @click="savednews()">Saved</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-navigation-drawer>
-          </template>
-          <!-- 여기까지 왼쪽 바 -->
-
-          <!-- 여기부터 메인 이미지파일 -->
-          <template>
-          <br>
-          <br>
-            <v-row align="center" justify="center">
-              <v-img
-                :src="require('/home/bitai/Downloads/wood.jpeg')"
-                class="my-3"
-                contain
-                max-width="300"
-                max-height="400"
-              />
-              <v-col cols="center" sm="center">
-              <v-img
-                :src="require('/home/bitai/Downloads/wood2.jpg')"
-                class="my-3"
-                max-width="300"
-                max-height="400"
-              />
-               <v-img
-                :src="require('/home/bitai/Downloads/wood3.jpg')"
-                class="my-3"
-                max-width="300"
-                max-height="400"
-              />
-              </v-col>
-
-                <template v-slot:placeholder>
-                  <v-row
-                    class="fill-height ma-0"
-                    align="center"
-                    justify="center"
-                  >
-                    <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                  </v-row>
-                </template>
-            </v-row>
+            <button id="login" @click="$router.push('AdminSetupPage')">
+            <v-icon>mdi-account-supervisor</v-icon>
+              Register
+            </button>
+          </div>
+        </div>
       </template>
-          <!-- 여기까지 메인 이미지파일 -->
 
-      <v-container>
-        <v-content id="content">
-        </v-content>
-      </v-container>
+    </v-app-bar>
 
-    </v-card>
+    <!-- 여기부터 왼쪽 바 -->
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <v-list dense>
+        <v-list-item @click.stop="left = !left">
+          <v-list-item-action>
+            <v-icon>mdi-exit-to-app</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title @click="home">Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+        <v-list dense>
+          <v-list-item @click.stop="left = !left">
+            <v-list-item-action>
+              <v-icon>mdi-exit-to-app</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title @click="category">Crawling</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+
+        <v-list dense>
+          <v-list-item @click.stop="left = !left">
+            <v-list-item-action>
+              <v-icon>mdi-exit-to-app</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title @click="suggest">Suggest</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+
+        <v-list dense>
+          <v-list-item @click.stop="left = !left">
+            <v-list-item-action>
+              <v-icon>mdi-exit-to-app</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title @click="board">Board</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+
+        <v-list dense>
+          <v-list-item @click.stop="left = !left">
+            <v-list-item-action>
+              <v-icon>mdi-exit-to-app</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title @click="savednews()">Saved</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+      <!-- 여기까지 왼쪽 바 -->
+
+      <v-spacer></v-spacer>
+      <template>
+        <v-carousel hide-delimiters>
+          <v-carousel-item
+            v-for="(item,i) in items"
+            :key="i"
+            :src="item.src"
+          ></v-carousel-item>
+        </v-carousel>
+      </template>
+
+    <v-container>
+      <v-content id="content">
+        <slot name="content" class="font">
+        </slot>
+      </v-content>
+    </v-container>
 
     <v-footer
       app
       color="#FF7043"
+      dark
       class="white--text"
     >
     <v-card
         flat
         tile
         class="deep-orange lighten-1 white--text text-center"
+        dark
       >
         <v-card-text>
           <v-btn
@@ -182,16 +142,18 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>our our</strong>
+          {{ new Date().getFullYear() }} — <strong>interior</strong>
         </v-card-text>
       </v-card>
     </v-footer>
-
   </v-app>
 </template>
 
 <script>
 import router from '../router'
+// import store from '../store'
+// import Vue from 'vue'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   data: () => ({
@@ -204,11 +166,25 @@ export default {
       'mdi-instagram'
     ],
     items: [
-      { title: 'login' },
-      { title: 'my board' },
-      { title: 'logout' },
-      { title: 'c/s' }
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+      }
     ]
+    // items: [
+    //   { title: 'login' },
+    //   { title: 'my board' },
+    //   { title: 'logout' },
+    //   { title: 'c/s' }
+    // ]
   }),
   methods: {
     home () {
@@ -225,7 +201,20 @@ export default {
     },
     board () {
       this.$router.push({ name: 'VuetifyBoardListPage' })
-    }
+    },
+    onClickLogout () {
+      this.logout()
+      alert('Success Logout')
+      this.$router.push({ name: 'MainPage' })
+    },
+    ...mapActions(['logout'])
+  },
+  computed: {
+    ...mapState(['myinfo']),
+    ...mapGetters(['isAuthorized'])
+  },
+  components: {
   }
 }
+
 </script>
