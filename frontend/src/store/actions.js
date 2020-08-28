@@ -28,8 +28,8 @@ export default {
     axios.get('http://localhost:7777/' + `${category}`)
       .then(({ data }) => {
         commit('CRAWLSTART', data)
-        if (window.location.pathname !== '/CrawlCategory') {
-          router.push('/MainPage')
+        if (window.location.pathname !== '/ItemsPage') {
+          router.push('/ItemsPage')
         }
       })
   },

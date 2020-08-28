@@ -3,10 +3,10 @@
     <v-app-bar
       app
       clipped-right
-      color="white"
+      color="elevation-0"
     >
      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-     <v-toolbar-title><div @click="$router.push('MainPage')">our home</div></v-toolbar-title>
+     <v-toolbar-title><div @click="$router.push('MainPage')" >our home</div></v-toolbar-title>
       <v-spacer></v-spacer>
       <slot name="menubar"></slot>
 
@@ -37,35 +37,13 @@
       v-model="drawer"
       app
     >
-      <v-list dense>
-        <v-list-item @click.stop="left = !left">
-          <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title @click="home">Home</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-
         <v-list dense>
           <v-list-item @click.stop="left = !left">
             <v-list-item-action>
               <v-icon>mdi-exit-to-app</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title @click="category">Crawling</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-
-        <v-list dense>
-          <v-list-item @click.stop="left = !left">
-            <v-list-item-action>
-              <v-icon>mdi-exit-to-app</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title @click="suggest">Suggest</v-list-item-title>
+              <v-list-item-title @click="category">items</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -87,16 +65,21 @@
               <v-icon>mdi-exit-to-app</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title @click="savednews()">Saved</v-list-item-title>
+              <v-list-item-title @click="picture">Picture</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
+
       </v-navigation-drawer>
+
       <!-- 여기까지 왼쪽 바 -->
 
       <v-spacer></v-spacer>
       <template>
-        <v-carousel hide-delimiters>
+        <v-carousel hide-delimiters
+          height="800"
+          weight="600"
+        >
           <v-carousel-item
             v-for="(item,i) in items"
             :key="i"
@@ -114,14 +97,14 @@
 
     <v-footer
       app
-      color="#FF7043"
+      color="#8D6E63"
       dark
       class="white--text"
     >
     <v-card
         flat
         tile
-        class="deep-orange lighten-1 white--text text-center"
+        class="brown lighten-1 white--text text-center"
         dark
       >
         <v-card-text>
@@ -167,7 +150,7 @@ export default {
     ],
     items: [
       {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+        src: 'https://images.unsplash.com/photo-1536349788264-1b816db3cc13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80'
       },
       {
         src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
@@ -187,11 +170,8 @@ export default {
     // ]
   }),
   methods: {
-    home () {
-      (window.location.pathname !== '/') ? router.push('/') : router.go(0)
-    },
     category () {
-      (window.location.pathname !== '/CrawlCategory') ? router.push('/CrawlCategory') : router.go(0)
+      (window.location.pathname !== '/ItemsPage') ? router.push('/ItemsPage') : router.go(0)
     },
     suggest () {
       (window.location.pathname !== '/suggestednews/list') ? router.push('/suggestednews/list') : router.go(0)
@@ -200,7 +180,10 @@ export default {
       (window.location.pathname !== '/savednews/list') ? router.push('/savednews/list') : router.go(0)
     },
     board () {
-      this.$router.push({ name: 'VuetifyBoardListPage' })
+      this.$router.push({ name: 'BoardListPage' })
+    },
+    picture () {
+      this.$router.push({ name: 'PictureBoardPage' })
     },
     onClickLogout () {
       this.logout()

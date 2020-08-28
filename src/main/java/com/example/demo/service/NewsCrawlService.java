@@ -66,10 +66,10 @@ public class NewsCrawlService {
         log.info("crawlingHome()");
 
         homeNewsRepository.deleteAll();
-        document = connectUrl("https://news.daum.net/");
+        document = connectUrl("https://shoppinghow.kakao.com/category/104102");
 
-        Elements total = document.select("strong.tit_thumb>a.link_txt");
-        Elements image = document.select("div.item_issue>a.link_thumb>img.thumb_g");
+        Elements total = document.select("strong.tit_g.link_txt");
+        Elements image = document.select("div.wrap_thumb>a.link_thumb._GC_");
 
         HomeNews homeNews = null;
 
@@ -86,10 +86,10 @@ public class NewsCrawlService {
     public void mainCrawler(String category) {
         log.info("mainCrawler(): " + category);
 
-        document = connectUrl("https://news.daum.net/" + category);
+        document = connectUrl("https://shoppinghow.kakao.com/category/104102" + category);
         newsRepository.deleteAll();
 
-        daumNews(document.select("div.item_mainnews>div.cont_thumb>strong.tit_thumb>a"), category);
+        daumNews(document.select("div.wrap_thumb>a.link_thumb._GC_"), category);
         daumNews(document.select("ul.item_mainnews>li>div.cont_thumb>strong.tit_thumb>a"), category);
         daumNews(document.select("strong.tit_mainnews>a"), category);
         daumNews(document.select("ul.list_issue>li>a.link_txt"), category);

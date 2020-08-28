@@ -8,7 +8,10 @@ import AdminSetupPage from '../views/AdminSetupPage.vue'
 import MainPage from '../views/MainPage.vue'
 import SignupPage from '../views/SignupPage.vue'
 
+// 페이지
 import FavorPage from '../views/FavorPage.vue'
+import PictureBoardPage from '../views/PictureBoardPage.vue'
+import ItemsPage from '../views/ItemsPage.vue'
 
 // 게시판
 import VuetifyBoardListPage from '../views/VuetifyBoardListPage.vue'
@@ -64,10 +67,31 @@ const routes = [
     }
   },
   {
+    path: '/BoardRegisterPage',
+    name: 'BoardRegisterPage',
+    components: {
+      default: BoardRegisterPage
+    }
+  },
+  {
     path: '/FavorPage',
     name: 'FavorPage',
     components: {
       default: FavorPage
+    }
+  },
+  {
+    path: '/PictureBoardPage',
+    name: 'PictureBoardPage',
+    components: {
+      default: PictureBoardPage
+    }
+  },
+  {
+    path: '/ItemsPage',
+    name: 'ItemsPage',
+    components: {
+      default: ItemsPage
     }
   },
   {

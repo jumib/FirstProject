@@ -1,20 +1,24 @@
 <template>
-<Layout>
   <div>
-    <table border="1">
-      <tr>
-        <th align="center" width="80">No</th>
-        <th align="center" width="320">Title</th>
-        <th align="center" width="100">Writer</th>
-        <th align="center" width="180">Registration Date</th>
-      </tr>
-      <tr v-for="page in paginatedData" :key="page.boardNo">
-        <td>{{ page.boardNo }}</td>
-        <td>{{ page.title }}</td>
-        <td>{{ page.writer }}</td>
-        <td>{{ page.regDate }}</td>
-      </tr>
-    </table>
+    <v-simple-table>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th align="center" width="80">No</th>
+            <th align="center" width="300">Title</th>
+            <th align="center" width="100">Writer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="page in paginatedData" :key="page.boardNo" align="center">
+            <td>{{ page.boardNo }}</td>
+            <td>{{ page.title }}</td>
+            <td>{{ page.writer }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
+
     <div class="btn-cover">
       <button :disabled="pageNum === 0"
         @click="prevPage" class="page-btn">
@@ -27,7 +31,6 @@
       </button>
     </div>
   </div>
-</Layout>
 </template>
 
 <script>
