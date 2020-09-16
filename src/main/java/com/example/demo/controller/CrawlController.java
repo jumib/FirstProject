@@ -20,11 +20,11 @@ public class CrawlController {
     @Autowired
     NewsCrawlService newsCrawler;
 
-    @GetMapping("{category}")
-    public List<News> crawling(@PathVariable String category) {
-        log.info("crawling(): " + category);
+    @GetMapping("")
+    public List<News> crawling() {
+        log.info("crawling(): ");
 
-        newsCrawler.mainCrawler(category);
+        newsCrawler.mainCrawler();
         return newsCrawler.newsFindAll();
     }
 

@@ -14,23 +14,23 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long newsSeq;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 200, nullable = false)
     private String newsNo;
 
-    @Column(length = 20, nullable = false)
-    private String category;
+    // @Column(length = 20, nullable = false)
+    // private String category;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 9000, nullable = false)
     private String title;
 
     @Column(length = 2000, nullable = false)
     private String address;
 
     @Builder
-    public News(String newsNo, String category, String title, String address) {
+    public News(String newsNo, String title, String address) {
         this.newsNo = newsNo;
         this.address = address;
-        this.category = category;
+        // this.category = category;
         this.title = title;
     }
 }

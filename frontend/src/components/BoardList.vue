@@ -1,5 +1,15 @@
 <template>
   <div>
+    <v-text-field
+      append-icon=""
+      v-model="search"
+      class="mx-4"
+      flat
+      hide-details
+      label="Search"
+      prepend-inner-icon=""
+      solo-inverted
+    ></v-text-field>
     <v-simple-table>
       <template v-slot:default>
         <thead>
@@ -29,6 +39,11 @@
 <script>
 export default {
   name: 'BoardList',
+  data () {
+    return {
+      search: ''
+    }
+  },
   props: {
     boards: {
       type: Array

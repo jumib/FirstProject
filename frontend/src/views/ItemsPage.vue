@@ -1,7 +1,9 @@
 <template>
   <div>
-    <v-btn @click="start('society')" text color="black"
+    <v-btn @click="start()" text color="black"
                 style="padding: 10px; width: 90px;">click</v-btn>
+    <v-btn depressed small
+          @click="$router.push('MainPage')">메인으로</v-btn>
         <v-simple-table> <!-- 옆을 작성했기때문에 테이블형태 가능 -->
           <template v-slot:default>
             <thead>
@@ -36,8 +38,8 @@ export default {
       console.log('clickNews: ' + newsNo)
       this.$store.dispatch('crawlFindOne', newsNo)
     },
-    start (category) {
-      this.$store.dispatch('crawlFind', category)
+    start () {
+      this.$store.dispatch('crawlFind')
     }
   }
 }

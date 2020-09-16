@@ -20,9 +20,6 @@ public class ClickedNews {
     @Column(length = 200, nullable = false)
     private String date;
 
-    @Column(length = 20, nullable = false)
-    private String category;
-
     @Column(length = 500, nullable = false)
     private String title;
 
@@ -33,9 +30,8 @@ public class ClickedNews {
     private String address;
 
     @Builder
-    public ClickedNews(String date, String category, String title, String contents, String address) {
+    public ClickedNews(String date, String title, String contents, String address) {
         this.date = date;
-        this.category = category;
         this.title = title;
         this.contents = contents;
         this.address = address;

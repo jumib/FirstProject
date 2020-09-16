@@ -24,8 +24,8 @@ import axios from 'axios'
 import router from '../router'
 
 export default {
-  async crawlFind ({ commit }, category) {
-    axios.get('http://localhost:7777/' + `${category}`)
+  async crawlFind ({ commit }) {
+    axios.get('http://localhost:7777/')
       .then(({ data }) => {
         commit('CRAWLSTART', data)
         if (window.location.pathname !== '/ItemsPage') {
@@ -38,7 +38,7 @@ export default {
       .then(({ data }) => {
         console.log('/news/newsNo res: ' + data)
         commit('FINDONE', data)
-        router.push('/CrawlCategory/news')
+        router.push('/ClickedItemPage')
       })
   },
   fetchBoardList ({ commit }) {

@@ -66,10 +66,10 @@ public class NewsCrawlService {
         log.info("crawlingHome()");
 
         homeNewsRepository.deleteAll();
-        document = connectUrl("https://shoppinghow.kakao.com/category/104102");
+        document = connectUrl("https://www.naver.com/");
 
-        Elements total = document.select("strong.tit_g.link_txt");
-        Elements image = document.select("div.wrap_thumb>a.link_thumb._GC_");
+        Elements total = document.select("strong.tit_thumb>a.link_txt");
+        Elements image = document.select("div.item_issue>a.link_thumb>img.thumb_g");
 
         HomeNews homeNews = null;
 
@@ -83,20 +83,17 @@ public class NewsCrawlService {
         }
     }
 
-    public void mainCrawler(String category) {
-        log.info("mainCrawler(): " + category);
+    public void mainCrawler() {
+        log.info("mainCrawler(): ");
 
-        document = connectUrl("https://shoppinghow.kakao.com/category/104102" + category);
+        document = connectUrl("https://www.naver.com/");
         newsRepository.deleteAll();
 
-        daumNews(document.select("div.wrap_thumb>a.link_thumb._GC_"), category);
-        daumNews(document.select("ul.item_mainnews>li>div.cont_thumb>strong.tit_thumb>a"), category);
-        daumNews(document.select("strong.tit_mainnews>a"), category);
-        daumNews(document.select("ul.list_issue>li>a.link_txt"), category);
+        daumNews(document.select("div.theme_cont>div.group_theme>div.list_theme_wrap>ul.list_theme>li.theme_item>a.theme_info>strong"));
     }
 
-    public void daumNews(Elements elements, String category) {
-        log.info("daumNews(): elements - " + elements + ", category - " + category);
+    public void daumNews(Elements elements) {
+        log.info("daumNews(): elements - " + elements + ", category - ");
 
         News news = null;
 
@@ -105,7 +102,6 @@ public class NewsCrawlService {
 
             news.setNewsNo(String.valueOf(newsRepository.findAll().size() + 1));
             news.setAddress(elements.get(i).attr("href"));
-            news.setCategory(category);
             news.setTitle(elements.get(i).text());
 
             newsRepository.save(news);
@@ -120,7 +116,6 @@ public class NewsCrawlService {
         ClickedNews clickedNews = new ClickedNews();
 
         clickedNews.setTitle(news.getTitle());
-        clickedNews.setCategory(news.getCategory());
         clickedNews.setAddress(news.getAddress());
         clickedNews.setClickedNewsNo(String.valueOf(clickedNewsRepository.findAll().size() + 1));
 

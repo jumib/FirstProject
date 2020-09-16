@@ -1,5 +1,6 @@
 <template>
   <v-app id="inspire">
+  <header>
     <v-app-bar
       app
       clipped-right
@@ -71,26 +72,22 @@
         </v-list>
 
       </v-navigation-drawer>
+      </header>
 
       <!-- 여기까지 왼쪽 바 -->
-
-      <v-spacer></v-spacer>
-      <template>
-        <v-carousel hide-delimiters
-          height="800"
-          weight="600"
-        >
-          <v-carousel-item
-            v-for="(item,i) in items"
-            :key="i"
-            :src="item.src"
-          ></v-carousel-item>
-        </v-carousel>
-      </template>
-
     <v-container>
       <v-content id="content">
         <slot name="content" class="font">
+         <v-carousel hide-delimiters
+                        height="800"
+                        weight="600"
+                      >
+                        <v-carousel-item
+                          v-for="(item,i) in items"
+                          :key="i"
+                          :src="item.src"
+                        ></v-carousel-item>
+                      </v-carousel>
         </slot>
       </v-content>
     </v-container>
