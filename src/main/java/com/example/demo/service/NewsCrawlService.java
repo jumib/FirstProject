@@ -90,10 +90,11 @@ public class NewsCrawlService {
         newsRepository.deleteAll();
 
         daumNews(document.select("div.theme_cont>div.group_theme>div.list_theme_wrap>ul.list_theme>li.theme_item>a.theme_info>strong"));
+        // div#themecast.sc_themecast.id_livinghome> 추가하면 크롤링 안됨
     }
 
     public void daumNews(Elements elements) {
-        log.info("daumNews(): elements - " + elements + ", category - ");
+        log.info("daumNews(): elements - " + elements);
 
         News news = null;
 

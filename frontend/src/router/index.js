@@ -10,7 +10,7 @@ import SignupPage from '../views/SignupPage.vue'
 
 // 페이지
 import FavorPage from '../views/FavorPage.vue'
-import PictureBoardPage from '../views/PictureBoardPage.vue'
+import FilePondPage from '../views/FilePondPage.vue'
 import ItemsPage from '../views/ItemsPage.vue'
 
 // 게시판
@@ -81,10 +81,10 @@ const routes = [
     }
   },
   {
-    path: '/PictureBoardPage',
-    name: 'PictureBoardPage',
+    path: '/FilePondPage',
+    name: 'FilePondPage',
     components: {
-      default: PictureBoardPage
+      default: FilePondPage
     }
   },
   {

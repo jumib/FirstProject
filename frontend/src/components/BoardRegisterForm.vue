@@ -15,6 +15,7 @@
         <td><textarea v-model="content" rows="5"></textarea></td>
       </tr>
     </table>
+    <!-- <v-file-input multiple label="File input"></v-file-input> -->
 
     <div>
       <button type="submit">Register</button>

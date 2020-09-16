@@ -4,10 +4,10 @@
     <v-app-bar
       app
       clipped-right
-      color="elevation-0"
+      color="#FFFFFF"
     >
-     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-     <v-toolbar-title><div @click="$router.push('MainPage')" >our home</div></v-toolbar-title>
+     <v-app-bar-nav-icon @click.stop="drawer = !drawer" color="#B71C1C"></v-app-bar-nav-icon>
+     <v-toolbar-title><div @click="$router.push('MainPage')">our interior</div></v-toolbar-title>
       <v-spacer></v-spacer>
       <slot name="menubar"></slot>
 
@@ -19,13 +19,11 @@
           </div>
           <div id="header" v-else>
             <button id="login" @click="$router.push('LoginPage')">
-            <v-icon>mdi-account</v-icon>
-              Login
+            <v-icon color="#B71C1C">mdi-account</v-icon>
             </button>
             <v-spacer></v-spacer>
             <button id="login" @click="$router.push('AdminSetupPage')">
-            <v-icon>mdi-account-supervisor</v-icon>
-              Register
+            <v-icon color="#B71C1C">mdi-account-supervisor</v-icon>
             </button>
           </div>
         </div>
@@ -78,30 +76,98 @@
     <v-container>
       <v-content id="content">
         <slot name="content" class="font">
-         <v-carousel hide-delimiters
-                        height="800"
-                        weight="600"
-                      >
-                        <v-carousel-item
-                          v-for="(item,i) in items"
-                          :key="i"
-                          :src="item.src"
-                        ></v-carousel-item>
-                      </v-carousel>
+              <v-row align="center" justify="center">
+                <v-img
+                  :src="require('/home/bitai/Downloads/NAVERCloud/interior1.jpeg')"
+                  class="my-3"
+                  contain
+                  max-width="300"
+                  max-height="400"
+                />
+                <v-img
+                  :src="require('/home/bitai/Downloads/NAVERCloud/interior2.jpeg')"
+                  class="my-3"
+                  max-width="300"
+                  max-height="400"
+                />
+                 <v-img
+                   :src="require('/home/bitai/Downloads/NAVERCloud/interior3.jpeg')"
+                   class="my-3"
+                   max-width="300"
+                   max-height="400"
+                 />
+                 <v-img
+                   :src="require('/home/bitai/Downloads/NAVERCloud/interior4.jpeg')"
+                   class="my-3"
+                   contain
+                   max-width="300"
+                   max-height="400"
+                 />
+                 <v-img
+                    :src="require('/home/bitai/Downloads/NAVERCloud/interior5.jpeg')"
+                    class="my-3"
+                    contain
+                    max-width="300"
+                    max-height="400"
+                 />
+                 <br>
+                   <v-img
+                     :src="require('/home/bitai/Downloads/NAVERCloud/interior6.jpeg')"
+                     class="my-3"
+                     contain
+                     max-width="300"
+                     max-height="400"
+                   />
+                   <v-img
+                     :src="require('/home/bitai/Downloads/NAVERCloud/interior7.jpeg')"
+                     class="my-3"
+                     max-width="300"
+                     max-height="400"
+                   />
+                    <v-img
+                      :src="require('/home/bitai/Downloads/NAVERCloud/interior8.jpeg')"
+                      class="my-3"
+                      max-width="300"
+                      max-height="400"
+                    />
+                    <v-img
+                      :src="require('/home/bitai/Downloads/NAVERCloud/interior9.jpeg')"
+                      class="my-3"
+                      contain
+                      max-width="300"
+                      max-height="400"
+                    />
+                    <v-img
+                       :src="require('/home/bitai/Downloads/NAVERCloud/interior10.jpeg')"
+                       class="my-3"
+                       contain
+                       max-width="300"
+                       max-height="400"
+                    />
+                  </v-row>
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
+                  </template>
         </slot>
       </v-content>
     </v-container>
 
     <v-footer
       app
-      color="#8D6E63"
+      color="#B71C1C"
       dark
       class="white--text"
     >
     <v-card
         flat
         tile
-        class="brown lighten-1 white--text text-center"
+        class="red darken-4 white--text text-center"
         dark
       >
         <v-card-text>
@@ -144,20 +210,6 @@ export default {
       'mdi-twitter',
       'mdi-linkedin',
       'mdi-instagram'
-    ],
-    items: [
-      {
-        src: 'https://images.unsplash.com/photo-1536349788264-1b816db3cc13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80'
-      },
-      {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-      },
-      {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-      },
-      {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-      }
     ]
     // items: [
     //   { title: 'login' },
@@ -180,7 +232,7 @@ export default {
       this.$router.push({ name: 'BoardListPage' })
     },
     picture () {
-      this.$router.push({ name: 'PictureBoardPage' })
+      this.$router.push({ name: 'FilePondPage' })
     },
     onClickLogout () {
       this.logout()

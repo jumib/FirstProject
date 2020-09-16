@@ -2,7 +2,7 @@
   <form @submit.prevent="submit">
     <table>
       <tr>
-        <td>Admin Id</td>
+        <td>Id</td>
         <td><input type="text" v-model="userId"></td>
       </tr>
       <tr>
@@ -10,13 +10,13 @@
         <td><input type="password" v-model="userPw"></td>
       </tr>
       <tr>
-        <td>Admin Name</td>
+        <td>Name</td>
         <td><input type="text" v-model="userName"></td>
       </tr>
     </table>
 
     <div>
-      <button type="submit">Register</button>
+      <button type="submit">complete</button>
     </div>
   </form>
 </template>
