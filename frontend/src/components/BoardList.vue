@@ -1,7 +1,10 @@
 <template>
   <v-card>
     <v-card-title>
-      BOARD
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-text-field
@@ -20,6 +23,7 @@
       :headers="headers"
       :items="boards"
       :search="search"
+      @click:row="readcontent"
     ></v-data-table>
   </v-card>
 </template>
@@ -32,7 +36,6 @@ export default {
       search: '',
       headers: [
         {},
-        {},
         { text: 'No', value: 'boardNo' },
         { text: 'Title', value: 'title' },
         { text: 'Writer', value: 'writer' }
@@ -42,6 +45,13 @@ export default {
   props: {
     boards: {
       type: Array
+    }
+  },
+  methods: {
+    readcontent (item) {
+      console.log(item.boardNo)
+      // alert('즐')
+      this.$router.push({ name: 'BoardReadPage', params: { boardNo: item.boardNo } })
     }
   }
 }
