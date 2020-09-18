@@ -1,6 +1,15 @@
 <template>
-  <div align="center">
-    <h2>Register First Adminstartor</h2>
+  <div class="ma-16" align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>Sign up</h2>
+    <br>
+    <br>
+    <br>
     <admin-setup-form @submit="onSubmit"/>
   </div>
 </template>

@@ -1,24 +1,35 @@
 <template>
-  <form @submit.prevent="submit">
-    <table>
-      <tr>
-        <td>Id</td>
-        <td><input type="text" v-model="userId"></td>
-      </tr>
-      <tr>
-        <td>Password</td>
-        <td><input type="password" v-model="userPw"></td>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td><input type="text" v-model="userName"></td>
-      </tr>
-    </table>
-
-    <div>
-      <button type="submit">complete</button>
-    </div>
-  </form>
+  <v-form @submit.prevent="submit">
+    <v-container>
+      <v-col cols="12" sm="6">
+        <v-text-field
+          v-model="userId"
+          label="id"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          v-model="userPw"
+          label="pw"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          v-model="userName"
+          label="name"
+          clearable
+        ></v-text-field>
+      </v-col>
+    </v-container>
+    <v-col class="text-center" cols="12" sm="4">
+      <div class="my-2">
+        <v-btn depressed small
+               type="submit">complete</v-btn>
+      </div>
+      <!-- <div class="my-2">
+        <v-btn depressed small
+        id="login" @click="signup">회원가입</v-btn>
+      </div> -->
+    </v-col>
+  </v-form>
 </template>
 
 <script>

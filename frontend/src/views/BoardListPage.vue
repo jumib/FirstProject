@@ -1,5 +1,5 @@
 <template>
-  <div id="board" align="center">
+  <div id="board" class="ma-16" align="center">
     <div class="my-2" align="right">
       <v-btn depressed small
       @click="$router.push('BoardRegisterPage')">작성하기</v-btn>

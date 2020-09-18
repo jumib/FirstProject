@@ -1,30 +1,35 @@
 <template>
   <v-app>
-    <!--  <div id="header">
-      <layout/>
+    <div id="header">
+      <Header/>
     </div>
-    -->
     <div id="content" >
       <router-view/>
     </div>
+    <div id="footer">
+      <Footer/>
+    </div>
   </v-app>
 </template>
-// 레이아웃의 헤더부분만 고정하고 싶은데
-// 전체 영역이 고정돼서 내용이 함께 보임 (수정하기)
 
 <script>
-// import Layout from '@/components/Layout'
-// export default {
-//   components: {
-//     Layout
-//   }
-// }
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
+export default {
+  components: {
+    Header,
+    Footer
+  }
+}
 </script>
 
 <style scoped>
-div {
-  border: //1px solid #ccc;
-}
 #content {
+  margin-left: 120px;
+  margin-right: 120px;
+}
+#app {
+  height: 0px;
 }
 </style>

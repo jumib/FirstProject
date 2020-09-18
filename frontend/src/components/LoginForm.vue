@@ -19,10 +19,10 @@
         <v-btn depressed small
         type="submit">로그인</v-btn>
       </div>
-      <!-- <div class="my-2">
+      <div class="my-2">
         <v-btn depressed small
         id="login" @click="signup">회원가입</v-btn>
-      </div> -->
+      </div>
     </v-col>
   </v-form>
 </template>
@@ -44,7 +44,7 @@ export default {
       this.$emit('submit', { userid, password })
     },
     signup () {
-      this.$router.push({ name: 'SignupPage' })
+      this.$router.push({ name: 'AdminSetupPage' })
     }
   }
 }

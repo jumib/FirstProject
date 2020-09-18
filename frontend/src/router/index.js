@@ -1,16 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home.vue'
 
 // For Login System
 import LoginPage from '../views/LoginPage.vue'
 import AdminSetupPage from '../views/AdminSetupPage.vue'
-import MainPage from '../views/MainPage.vue'
-import SignupPage from '../views/SignupPage.vue'
 
 // 페이지
+import MainPage from '../views/MainPage'
 import FavorPage from '../views/FavorPage.vue'
-import FilePondPage from '../views/FilePondPage.vue'
+import PondListPage from '../views/PondListPage.vue'
+import PondRegisterPage from '../views/PondRegisterPage.vue'
 import ItemsPage from '../views/ItemsPage.vue'
 
 // 게시판
@@ -20,17 +19,14 @@ import BoardRegisterPage from '../views/BoardRegisterPage.vue'
 import BoardModifyPage from '../views/BoardModifyPage.vue'
 import BoardReadPage from '../views/BoardReadPage.vue'
 
-// 크롤링게시판
-// import CrawlCategory from '../views/CrawlCategory.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
+  {
+    path: '/',
+    name: 'MainPage',
+    component: MainPage
+  },
   {
     path: '/LoginPage',
     name: 'LoginPage',
@@ -43,13 +39,6 @@ const routes = [
     name: 'AdminSetupPage',
     components: {
       default: AdminSetupPage
-    }
-  },
-  {
-    path: '/SignupPage',
-    name: 'SignupPage',
-    components: {
-      default: SignupPage
     }
   },
   {
@@ -81,10 +70,17 @@ const routes = [
     }
   },
   {
-    path: '/FilePondPage',
-    name: 'FilePondPage',
+    path: '/PondListPage',
+    name: 'PondListPage',
     components: {
-      default: FilePondPage
+      default: PondListPage
+    }
+  },
+  {
+    path: '/PondRegisterPage',
+    name: 'PondRegisterPage',
+    components: {
+      default: PondRegisterPage
     }
   },
   {
