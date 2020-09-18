@@ -1,25 +1,32 @@
 <template>
-  <div>
-    <v-btn @click="start()" text color="black"
-                style="padding: 10px; width: 90px;">click</v-btn>
-    <v-btn depressed small
-          @click="$router.push('MainPage')">메인으로</v-btn>
-        <v-simple-table> <!-- 옆을 작성했기때문에 테이블형태 가능 -->
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left">No.</th>
-                <th class="text-left">제목</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="list of lists" :key="list.title">
-                <td style="color: gray">{{ list.newsNo }}</td>
-                <td><a @click="clickNews(list.newsNo)">{{ list.title }}</a></td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
+  <div id="board" class="ma-16" align="center">
+    <div class="ma-3" align="left">
+      <v-btn depressed small color="#FFFFFF"
+             @click="start()">불러오기</v-btn>
+      <v-btn depressed small color="#FFFFFF"
+             @click="$router.push('MainPage')">메인으로</v-btn>
+    </div>
+    <v-card>
+      <v-card-title>
+        news
+      </v-card-title>
+      <v-simple-table>
+        <template v-slot:default>
+          <thead>
+          <tr>
+            <th class="text-left">No.</th>
+            <th class="text-left">제목</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="list of lists" :key="list.title">
+            <td style="color: gray">{{ list.newsNo }}</td>
+            <td><a @click="clickNews(list.newsNo)">{{ list.title }}</a></td>
+          </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
+    </v-card>
   </div>
 </template>
 

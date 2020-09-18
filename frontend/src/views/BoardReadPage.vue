@@ -1,14 +1,14 @@
 <template>
-  <div align="center">
+  <div class="ma-16" align="center">
     <h2>Detailed Board List</h2>
     <board-read v-if="board" :board="board"/>
     <p v-else>Loading ...</p>
     <router-link :to="{ name: 'BoardModifyPage', params: { boardNo } }">
-      Edit
+      <v-icon>mdi-square-edit-outline</v-icon>
     </router-link>
-    <button @click="onDelete">Delete</button>
+    <v-btn @click="onDelete">delete<v-icon>mdi-delete</v-icon></v-btn>
     <router-link :to="{ name: 'BoardListPage' }">
-      List
+      <v-icon>mdi-format-list-bulleted</v-icon>
     </router-link>
   </div>
 </template>

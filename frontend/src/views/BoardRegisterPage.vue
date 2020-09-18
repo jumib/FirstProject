@@ -1,5 +1,5 @@
 <template>
-  <div align="center">
+  <div class="ma-16" align="center">
     <h2>Board Register</h2>
     <board-register-form @submit="onSubmit"/>
   </div>

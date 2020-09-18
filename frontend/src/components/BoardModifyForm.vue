@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Board Modified Form</h3>
-    <form @submit.prevent="onSubmit">
+    <v-form @submit.prevent="onSubmit">
       <table>
         <tr>
           <td>No</td>
@@ -26,12 +26,11 @@
       </table>
 
       <div>
-        <button type="submit">Modify</button>
-        <router-link :to="{ name: 'BoardReadPage', params: { boardNo: board.boardNo.toString() } }">
-          Cancel
-        </router-link>
+        <v-btn type="submit">complete<v-icon>mdi-check-bold</v-icon></v-btn>
+        <v-btn router-link :to="{ name: 'BoardReadPage', params: { boardNo: board.boardNo.toString() } }"
+        >back<v-icon>mdi-arrow-left-bold</v-icon></v-btn>
       </div>
-    </form>
+    </v-form>
   </div>
 </template>
 

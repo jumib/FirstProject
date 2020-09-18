@@ -1,29 +1,29 @@
 <template>
-  <form @submit.prevent="onSubmit">
-    <h3>게시글작성중임</h3>
-    <table>
-      <tr>
-        <td>Title</td>
-        <td><input type="text" v-model="title"></td>
-      </tr>
-      <tr>
-        <td>Writer</td>
-        <td><input type="text" v-model="writer"></td>
-      </tr>
-      <tr>
-        <td>Content</td>
-        <td><textarea v-model="content" rows="5"></textarea></td>
-      </tr>
-    </table>
-    <!-- <v-file-input multiple label="File input"></v-file-input> -->
-
+  <v-form @submit.prevent="onSubmit">
+    <v-container>
+      <v-col cols="12" sm="6">
+        <v-text-field
+          v-model="title"
+          label="title"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          v-model="writer"
+          label="writer"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          v-model="content"
+          label="content"
+          clearable
+        ></v-text-field>
+      </v-col>
+    </v-container>
     <div>
-      <button type="submit">Register</button>
-      <router-link :to="{ name: 'BoardListPage' }">
-        Cancel
-      </router-link>
+      <v-btn depressed small
+             type="submit">등록</v-btn>
     </div>
-  </form>
+  </v-form>
 </template>
 
 <script>

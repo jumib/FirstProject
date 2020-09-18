@@ -1,5 +1,5 @@
 <template>
-  <div align="center">
+  <div class="ma-16" align="center">
     <h2>Board Modification</h2>
     <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
     <p v-else>Loading ...</p>

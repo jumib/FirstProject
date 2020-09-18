@@ -1,5 +1,5 @@
 <template>
-  <div align="center">
+  <div class="ma-16" align="center">
     <br>
     <br>
     <br>
