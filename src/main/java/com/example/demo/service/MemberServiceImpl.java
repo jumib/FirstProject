@@ -127,4 +127,9 @@ public class MemberServiceImpl implements MemberService {
     public long countAll() throws Exception {
         return repository.count();
     }
+
+    @Override
+    public boolean idcheck(String userId) throws Exception {
+        return repository.findByUserId(userId).size() == 0;
+    }
 }

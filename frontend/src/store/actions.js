@@ -33,14 +33,6 @@ export default {
         }
       })
   },
-  async crawlFindOne ({ commit }, newsNo) {
-    axios.get('http://localhost:7777/news/' + `${newsNo}`)
-      .then(({ data }) => {
-        console.log('/news/newsNo res: ' + data)
-        commit('FINDONE', data)
-        router.push('/ClickedItemPage')
-      })
-  },
   fetchBoardList ({ commit }) {
     return axios.get('http://localhost:7777/boards')
       .then(res => {

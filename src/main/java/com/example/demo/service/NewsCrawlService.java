@@ -91,7 +91,7 @@ public class NewsCrawlService {
         // document = connectUrl("https://www.naver.com/");
         newsRepository.deleteAll();
 
-        daumNews(document.select("div.virtualized-list.row>div.col-12.col-md-4>article.project-feed__item>h1.project-feed__item__title"));
+        daumNews(document.select("div.virtualized-list.row>div.col-12.col-md-4>article.project-feed__item"));
         // daumNews(document.select("div.theme_cont>div.group_theme>div.list_theme_wrap>ul.list_theme>li.theme_item>a.theme_info>strong"));
         // div#themecast.sc_themecast.id_livinghome> 추가하면 크롤링 안됨
     }
@@ -105,8 +105,8 @@ public class NewsCrawlService {
             news = new News();
 
             news.setNewsNo(String.valueOf(newsRepository.findAll().size() + 1));
-            news.setAddress(elements.get(i).attr("href"));
-            news.setTitle(elements.get(i).text());
+            news.setAddress("https://www.ohou.se" + elements.get(i).select("a.project-feed__item__link").attr("href"));
+            news.setTitle(elements.get(i).select("h1.project-feed__item__title").text());
 
             newsRepository.save(news);
         }

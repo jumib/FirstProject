@@ -7,7 +7,7 @@
         <br>
   <v-container>
     <v-col cols="8">
-    <div class="ma-4" align="right">
+    <div class="ma-2" align="right">
         <v-btn text depressed small color="green"
              @click="start()">A collection of living articles by topic to read today</v-btn>
     </div>
@@ -23,7 +23,7 @@
           <tbody>
           <tr v-for="list of lists" :key="list.title">
             <td style="color: gray">{{ list.newsNo }}</td>
-            <td><a @click="clickNews(list.newsNo)">{{ list.title }}</a></td>
+            <td><a href="https://www.ohou.se" +  target="_blank">{{ list.title }}</a></td>
           </tr>
           </tbody>
         </template>
@@ -73,10 +73,6 @@ export default {
     })
   },
   methods: {
-    clickNews (newsNo) {
-      console.log('clickNews: ' + newsNo)
-      this.$store.dispatch('crawlFindOne', newsNo)
-    },
     start () {
       this.$store.dispatch('crawlFind')
     },
