@@ -1,15 +1,15 @@
 <template>
   <v-form @submit.prevent="submit">
     <v-container>
-      <v-col cols="12" sm="6">
+      <v-col cols="4">
         <v-text-field
           v-model="userId"
-          label="id"
+          label="e-mail"
           clearable
         ></v-text-field>
         <v-text-field
           v-model="userPw"
-          label="pw"
+          label="password"
           clearable
         ></v-text-field>
         <v-text-field
@@ -21,13 +21,10 @@
     </v-container>
     <v-col class="text-center" cols="12" sm="4">
       <div class="my-2">
-        <v-btn depressed small
-               type="submit">complete</v-btn>
+        <v-btn depressed small type="submit" color="green" dark>complete</v-btn>
       </div>
-      <!-- <div class="my-2">
-        <v-btn depressed small
-        id="login" @click="signup">회원가입</v-btn>
-      </div> -->
+      <br>
+      <v-btn depressed small color="green" @click="$router.push('LoginPage')">back</v-btn>
     </v-col>
   </v-form>
 </template>

@@ -28,6 +28,7 @@ export default {
 #content {
   margin-left: 120px;
   margin-right: 120px;
+  margin-bottom: 120px;
 }
 #app {
   height: 0px;

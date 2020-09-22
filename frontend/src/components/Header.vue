@@ -7,8 +7,8 @@
     flat
     dense
     >
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" color="#FFFFFF"></v-app-bar-nav-icon>
-    <v-btn text @click="$router.push('MainPage')" color="#FFFFFF">our interior</v-btn>
+    <v-app-bar-nav-icon @mouseover="drawer = !drawer" color="#FFFFFF"></v-app-bar-nav-icon>
+    <v-btn text @click="$router.push('MainPage')" color="#FFFFFF">interior</v-btn>
     <v-spacer></v-spacer>
       <slot name="menubar">
         <div class="home">
@@ -29,36 +29,49 @@
     v-model="drawer"
     app
     >
-      <v-list dense>
-        <v-list-item @click.stop="left = !left">
-          <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title @click="category">items</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <v-list dense>
-        <v-list-item @click.stop="left = !left">
-          <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title @click="board">Board</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <v-list dense>
-        <v-list-item @click.stop="left = !left">
-          <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title @click="picture">Picture</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <div class="home">
+        <div id="header" v-if="isAuthorized">
+          <v-list dense>
+            <v-list-item @click.stop="left = !left">
+              <v-list-item-action>
+                <v-icon>mdi-google-downasaur</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title @click="board">Text Board</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+          <v-list dense>
+            <v-list-item @click.stop="left = !left">
+              <v-list-item-action>
+                <v-icon>mdi-pine-tree</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title @click="picture">Picture Board</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+          <v-list dense>
+            <v-list-item @click.stop="left = !left">
+              <v-list-item-action>
+                <v-icon>mdi-waze</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title @click="category">Information Board</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </div>
+        <div id="header" v-else>
+          <v-list dense align="center">
+            <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title>Available after login</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </div>
+      </div>
     </v-navigation-drawer>
   </v-app>
 </template>

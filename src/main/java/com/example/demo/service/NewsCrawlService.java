@@ -66,7 +66,8 @@ public class NewsCrawlService {
         log.info("crawlingHome()");
 
         homeNewsRepository.deleteAll();
-        document = connectUrl("https://www.naver.com/");
+        document = connectUrl("https://www.ohou.se/projects?writer=self");
+        // document = connectUrl("https://www.naver.com/");
 
         Elements total = document.select("strong.tit_thumb>a.link_txt");
         Elements image = document.select("div.item_issue>a.link_thumb>img.thumb_g");
@@ -86,10 +87,12 @@ public class NewsCrawlService {
     public void mainCrawler() {
         log.info("mainCrawler(): ");
 
-        document = connectUrl("https://www.naver.com/");
+        document = connectUrl("https://www.ohou.se/projects?writer=self");
+        // document = connectUrl("https://www.naver.com/");
         newsRepository.deleteAll();
 
-        daumNews(document.select("div.theme_cont>div.group_theme>div.list_theme_wrap>ul.list_theme>li.theme_item>a.theme_info>strong"));
+        daumNews(document.select("div.virtualized-list.row>div.col-12.col-md-4>article.project-feed__item>h1.project-feed__item__title"));
+        // daumNews(document.select("div.theme_cont>div.group_theme>div.list_theme_wrap>ul.list_theme>li.theme_item>a.theme_info>strong"));
         // div#themecast.sc_themecast.id_livinghome> 추가하면 크롤링 안됨
     }
 

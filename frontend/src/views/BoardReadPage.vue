@@ -1,15 +1,27 @@
 <template>
   <div class="ma-16" align="center">
-    <h2>Detailed Board List</h2>
+    <br>
+    <h2>Read page</h2>
+    <br>
+    <br>
+    <br>
     <board-read v-if="board" :board="board"/>
     <p v-else>Loading ...</p>
-    <router-link :to="{ name: 'BoardModifyPage', params: { boardNo } }">
-      <v-icon>mdi-square-edit-outline</v-icon>
-    </router-link>
-    <v-btn @click="onDelete">delete<v-icon>mdi-delete</v-icon></v-btn>
-    <router-link :to="{ name: 'BoardListPage' }">
-      <v-icon>mdi-format-list-bulleted</v-icon>
-    </router-link>
+    <v-row justify="center">
+    <v-btn depressed small color="green" dark router-link :to="{ name: 'BoardModifyPage', params: { boardNo } }">
+      edit
+    </v-btn>
+    </v-row>
+    <br>
+    <v-row justify="center">
+    <v-btn depressed small color="green" router-link :to="{ name: 'BoardListPage' }">
+      back
+    </v-btn>
+    </v-row>
+    <br>
+    <v-row justify="center">
+    <v-btn text depressed small @click="onDelete">Are you sure you want to delete?</v-btn>
+    </v-row>
   </div>
 </template>
 

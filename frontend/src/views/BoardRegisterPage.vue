@@ -1,6 +1,10 @@
 <template>
   <div class="ma-16" align="center">
+    <br>
     <h2>Board Register</h2>
+    <br>
+    <br>
+    <br>
     <board-register-form @submit="onSubmit"/>
   </div>
 </template>

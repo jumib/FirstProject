@@ -17,8 +17,9 @@
         :key="icon"
         class="mx-4 white--text"
         icon
+        @click="movelink(icon.url)"
         >
-          <v-icon size="20px" >{{ icon }}</v-icon>
+          <v-icon size="20px" >{{ icon.name }}</v-icon>
         </v-btn>
       </v-card-text>
       <v-card-text class="white--text pt-0">
@@ -40,11 +41,16 @@ export default {
     drawer: false,
     left: false,
     icons: [
-      'mdi-facebook',
-      'mdi-twitter',
-      'mdi-linkedin',
-      'mdi-instagram'
+      { name: 'mdi-facebook', url: 'https://www.facebook.com' },
+      { name: 'mdi-twitter', url: 'https://twitter.com' },
+      { name: 'mdi-linkedin', url: 'https://www.instagram.com' },
+      { name: 'mdi-instagram', url: 'https://kr.linkedin.com' }
     ]
-  })
+  }),
+  methods: {
+    movelink: function (url) {
+      window.open(url)
+    }
+  }
 }
 </script>

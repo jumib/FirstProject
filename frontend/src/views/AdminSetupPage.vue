@@ -6,7 +6,7 @@
     <br>
     <br>
     <br>
-    <h2>Sign up</h2>
+    <h1>Sign up</h1>
     <br>
     <br>
     <br>

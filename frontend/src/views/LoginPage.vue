@@ -6,7 +6,7 @@
     <br>
     <br>
     <br>
-    <h2>Login</h2>
+    <h1>Log in</h1>
     <br>
     <br>
     <br>

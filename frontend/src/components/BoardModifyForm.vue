@@ -1,35 +1,29 @@
 <template>
   <div>
-    <h3>Board Modified Form</h3>
     <v-form @submit.prevent="onSubmit">
-      <table>
-        <tr>
-          <td>No</td>
-          <td><input type="text" :value="board.boardNo" disabled></td>
-        </tr>
-        <tr>
-          <td>Registration Date</td>
-          <td><input type="text" :value="board.regDate" disabled></td>
-        </tr>
-        <tr>
-          <td>Title</td>
-          <td><input type="text" v-model="title"></td>
-        </tr>
-        <tr>
-          <td>Writer</td>
-          <td><input type="text" :value="board.writer" disabled></td>
-        </tr>
-        <tr>
-          <td>Content</td>
-          <td><textarea v-model="content" rows="5"></textarea></td>
-        </tr>
-      </table>
-
-      <div>
-        <v-btn type="submit">complete<v-icon>mdi-check-bold</v-icon></v-btn>
-        <v-btn router-link :to="{ name: 'BoardReadPage', params: { boardNo: board.boardNo.toString() } }"
-        >back<v-icon>mdi-arrow-left-bold</v-icon></v-btn>
-      </div>
+      <v-container>
+        <v-col cols="4">
+        <v-text-field
+          v-model="title"
+          label="title"
+          clearable
+        ></v-text-field>
+        <v-text-field
+          :value="board.writer"
+          label="writer"
+          disabled
+        ></v-text-field>
+        <v-textarea v-model="content" rows="5" label="content" outlined  row-height="30"></v-textarea>
+        </v-col>
+      </v-container>
+      <v-row justify="center">
+        <v-btn depressed small type="submit" color="green" dark>complete</v-btn>
+      </v-row>
+      <br>
+      <v-row justify="center">
+        <v-btn depressed small color="green"
+               router-link :to="{ name: 'BoardReadPage', params: { boardNo: board.boardNo.toString() } }">back</v-btn>
+      </v-row>
     </v-form>
   </div>
 </template>

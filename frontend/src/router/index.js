@@ -7,7 +7,6 @@ import AdminSetupPage from '../views/AdminSetupPage.vue'
 
 // 페이지
 import MainPage from '../views/MainPage'
-import FavorPage from '../views/FavorPage.vue'
 import PondListPage from '../views/PondListPage.vue'
 import PondRegisterPage from '../views/PondRegisterPage.vue'
 import ItemsPage from '../views/ItemsPage.vue'
@@ -60,13 +59,6 @@ const routes = [
     name: 'BoardRegisterPage',
     components: {
       default: BoardRegisterPage
-    }
-  },
-  {
-    path: '/FavorPage',
-    name: 'FavorPage',
-    components: {
-      default: FavorPage
     }
   },
   {

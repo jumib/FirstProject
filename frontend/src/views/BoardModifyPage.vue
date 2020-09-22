@@ -1,6 +1,10 @@
 <template>
   <div class="ma-16" align="center">
-    <h2>Board Modification</h2>
+    <br>
+    <h2>Edit page</h2>
+    <br>
+    <br>
+    <br>
     <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
     <p v-else>Loading ...</p>
   </div>

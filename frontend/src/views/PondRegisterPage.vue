@@ -1,9 +1,11 @@
 <template>
  <div class="ma-16" align="center">
-    <h2>사진 업로드 페이지</h2>
+    <br>
+    <br>
+    <h2>Upload</h2>
+    <br>
+    <br>
     <div class="my-2" align="right">
-      <v-btn depressed small
-      @click="$router.push('MainPage')">메인으로</v-btn>
       <PondRegisterForm/>
     </div>
  </div>

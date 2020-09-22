@@ -1,11 +1,10 @@
 <template>
   <div id="board" class="ma-16" align="center">
-    <div class="my-2" align="right">
-      <v-btn depressed small
-      @click="$router.push('BoardRegisterPage')">작성하기</v-btn>
-      <v-btn depressed small
-      @click="$router.push('MainPage')">메인으로</v-btn>
-    </div>
+      <br>
+      <br>
+      <h2>Text board</h2>
+      <br>
+      <br>
     <board-list :boards="boards"/>
   </div>
 </template>

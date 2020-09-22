@@ -1,16 +1,18 @@
 <template>
   <div id="board" class="ma-16" align="center">
-    <div class="ma-3" align="left">
-      <v-btn depressed small color="#FFFFFF"
-             @click="start()">불러오기</v-btn>
-      <v-btn depressed small color="#FFFFFF"
-             @click="$router.push('MainPage')">메인으로</v-btn>
+        <br>
+        <br>
+        <h2>Info board</h2>
+        <br>
+        <br>
+  <v-container>
+    <v-col cols="8">
+    <div class="ma-4" align="right">
+        <v-btn text depressed small color="green"
+             @click="start()">A collection of living articles by topic to read today</v-btn>
     </div>
     <v-card>
-      <v-card-title>
-        news
-      </v-card-title>
-      <v-simple-table>
+      <v-simple-table class="ma-7">
         <template v-slot:default>
           <thead>
           <tr>
@@ -26,7 +28,21 @@
           </tbody>
         </template>
       </v-simple-table>
+
+      <div class="btn-cover">
+        <button :disabled="pageNum === 0"
+                @click="prevPage" class="page-btn">
+          이전
+        </button>
+        <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+        <button :disabled="pageNum >= pageCount - 1"
+                @click="nextPage" class="page-btn">
+          다음
+        </button>
+      </div>
     </v-card>
+    </v-col>
+      </v-container>
   </div>
 </template>
 
@@ -34,6 +50,22 @@
 import { mapState } from 'vuex'
 
 export default {
+  data () {
+    return {
+      pageNum: 0
+    }
+  },
+  props: {
+    listArray: {
+      type: Array,
+      required: true
+    },
+    pageSize: {
+      type: Number,
+      required: true,
+      default: 5
+    }
+  },
   component: { },
   computed: {
     ...mapState({
@@ -47,6 +79,12 @@ export default {
     },
     start () {
       this.$store.dispatch('crawlFind')
+    },
+    nextPage () {
+      this.pageNum += 1
+    },
+    prevPage () {
+      this.pageNum -= 1
     }
   }
 }

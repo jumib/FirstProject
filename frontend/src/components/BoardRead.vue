@@ -1,28 +1,12 @@
 <template>
   <div>
-    <h3>Board Detailed View</h3>
-    <table>
-      <tr>
-        <td>No</td>
-        <td><input type="text" :value="board.boardNo" readonly></td>
-      </tr>
-      <tr>
-        <td>Registration Date</td>
-        <td><input type="text" :value="board.regDate" readonly></td>
-      </tr>
-      <tr>
-        <td>Title</td>
-        <td><input type="text" :value="board.title" readonly></td>
-      </tr>
-      <tr>
-        <td>Writer</td>
-        <td><input type="text" :value="board.writer" readonly></td>
-      </tr>
-      <tr>
-        <td>Content</td>
-        <td><textarea :value="board.content" rows="5" readonly></textarea></td>
-      </tr>
-    </table>
+    <v-container>
+      <v-col cols="4">
+        <v-textarea :value="board.title" rows="1" readonly  label="title" row-height="25"></v-textarea>
+        <v-textarea :value="board.writer" rows="1" readonly  label="writer" row-height="25"></v-textarea>
+        <v-textarea :value="board.content" rows="5" readonly  label="content" row-height="25"></v-textarea>
+      </v-col>
+    </v-container>
   </div>
 </template>
 

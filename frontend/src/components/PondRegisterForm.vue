@@ -8,20 +8,27 @@
         label-idle="Drop files here !"
         allow-multiple="true"
         accepted-file-types="image/jpeg, image/png"
-        server="/files"
+        server="http://localhost:7777/files"
         v-on:init="handleFilePondInit"/>
       </v-col>
-      <v-col cols="3">
+      <!-- <v-col cols="3">
         <v-textarea
           counter
+          color="cyan"
           label="content"
           :rules="rules"
           :value="value"
         ></v-textarea>
-      </v-col>
+      </v-col> -->
     </v-row>
+    <br>
     <v-row justify="center">
-      <v-btn depressed small type="submit" color="red" dark>complete</v-btn>
+      <v-btn depressed small @click="$router.push('PondListPage')" color="green" dark>complete</v-btn>
+    </v-row>
+    <br>
+    <v-row justify="center">
+      <v-btn depressed small color="green"
+             @click="$router.push('PondListPage')">back</v-btn>
     </v-row>
   </v-container>
 </template>

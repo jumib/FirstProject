@@ -1,7 +1,7 @@
 <template>
   <v-form @submit.prevent="onSubmit">
     <v-container>
-      <v-col cols="12" sm="6">
+      <v-col cols="4">
         <v-text-field
           v-model="title"
           label="title"
@@ -12,17 +12,25 @@
           label="writer"
           clearable
         ></v-text-field>
-        <v-text-field
-          v-model="content"
-          label="content"
-          clearable
-        ></v-text-field>
+          <v-textarea
+            v-model="content"
+            outlined
+            auto-grow
+            label="content"
+            rows="8"
+            row-height="20"
+          ></v-textarea>
       </v-col>
     </v-container>
-    <div>
-      <v-btn depressed small
-             type="submit">등록</v-btn>
-    </div>
+    <v-row justify="center">
+        <v-btn depressed small color="green" dark
+               type="submit">complete</v-btn>
+    </v-row>
+    <br>
+    <v-row justify="center">
+      <v-btn depressed small color="green"
+             @click="$router.push('/board')">back</v-btn>
+    </v-row>
   </v-form>
 </template>
 

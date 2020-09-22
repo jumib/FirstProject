@@ -1,29 +1,34 @@
 <template>
   <v-form @submit.prevent="submit">
     <v-container>
-      <v-col cols="12" sm="6">
+      <v-col cols="4">
         <v-text-field
           v-model="userid"
-          label="id"
+          label="e-mail"
           clearable
         ></v-text-field>
         <v-text-field
+          input type="password"
           v-model="password"
-          label="pw"
+          label="password"
           clearable
         ></v-text-field>
       </v-col>
     </v-container>
-    <v-col class="text-center" cols="12" sm="4">
-      <div class="my-2">
-        <v-btn depressed small
-        type="submit">로그인</v-btn>
-      </div>
-      <div class="my-2">
-        <v-btn depressed small
-        id="login" @click="signup">회원가입</v-btn>
-      </div>
-    </v-col>
+    <v-row>
+      <v-col cols="12">
+        <div class="my-2">
+          <v-btn text depressed small
+                 @click="signup">Forgot your password?</v-btn>
+          <br><br>
+          <v-btn depressed small
+            type="submit" color="green" dark>SIGN IN</v-btn>
+          <br><br>
+          <v-btn text depressed small
+            @click="signup">Creat account</v-btn>
+        </div>
+      </v-col>
+    </v-row>
   </v-form>
 </template>
 

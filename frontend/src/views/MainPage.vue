@@ -16,3 +16,10 @@
 
 <script>
 </script>
+
+<style scoped lang="scss">
+#bg{
+  // 이미지가 로고와 텍스트 포함해서 어두워짐
+  filter: brightness(50%);
+}
+</style>
