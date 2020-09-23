@@ -6,22 +6,20 @@
           <v-text-field
               v-model="userId"
               label="e-mail"
-              clearable
+              :rules="rules"
             ></v-text-field>
-            <v-btn class="mt-4" depressed small color="white" @click="check"><v-icon>mdi-check</v-icon></v-btn>
+            <v-btn class="mt-4" depressed small color="white" @click="check">확인</v-btn>
         </v-row>
         <v-row>
         <v-text-field
           v-model="userPw"
           label="password"
-          clearable
         ></v-text-field><v-btn depressed small color="white"></v-btn>
         </v-row>
         <v-row>
         <v-text-field
           v-model="userName"
           label="name"
-          clearable
         ></v-text-field><v-btn depressed small color="white"></v-btn>
         </v-row>
       </v-col>
@@ -46,7 +44,15 @@ export default {
     return {
       userId: '',
       userName: '',
-      userPw: ''
+      userPw: '',
+      rules: [
+        value => !!value || 'Required.',
+        value => (value || '').length <= 20 || 'Max 20 characters',
+        value => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(value) || 'Invalid e-mail.'
+        }
+      ]
     }
   },
   methods: {
@@ -64,9 +70,9 @@ export default {
           console.log(res)
           if (res.status === 200) {
             if(res.data === 'ok'){
-              alert("사용가능합니다")
+              alert("사용 가능")
             } else {
-              alert("중복된 Id 입니다")
+              alert("사용 불가")
             }
           }
         })

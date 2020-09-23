@@ -10,6 +10,8 @@ import MainPage from '../views/MainPage'
 import PondListPage from '../views/PondListPage.vue'
 import PondRegisterPage from '../views/PondRegisterPage.vue'
 import ItemsPage from '../views/ItemsPage.vue'
+import ForgotPwPage from '../views/ForgotPwPage.vue'
+import Favor from '../views/Favor.vue'
 
 // 게시판
 import VuetifyBoardListPage from '../views/VuetifyBoardListPage.vue'
@@ -31,6 +33,20 @@ const routes = [
     name: 'LoginPage',
     components: {
       default: LoginPage
+    }
+  },
+  {
+    path: '/ForgotPwPage',
+    name: 'ForgotPwPage',
+    components: {
+      default: ForgotPwPage
+    }
+  },
+  {
+    path: '/Favor',
+    name: 'Favor',
+    components: {
+      default: Favor
     }
   },
   {

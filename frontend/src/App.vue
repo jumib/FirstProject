@@ -26,11 +26,13 @@ export default {
 
 <style scoped>
 #content {
-  margin-left: 120px;
-  margin-right: 120px;
-  margin-bottom: 120px;
 }
 #app {
   height: 0px;
+}
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
 }
 </style>

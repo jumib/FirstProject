@@ -31,12 +31,17 @@ public class FilePondController {
         File serverFile = new File(savepath + File.separator + filename);
         mfile.transferTo(serverFile);
 
-        return new ResponseEntity<String>("ok", HttpStatus.OK);
+        return new ResponseEntity<String>(serverFile.getAbsolutePath(), HttpStatus.OK);
     }
 
-    @DeleteMapping("/remove")
-    public ResponseEntity<Void> remove() throws Exception {
+    @DeleteMapping("/files")
+    public ResponseEntity<Void> remove(@RequestBody String path) throws Exception {
+        log.info("path : " + path);
 
+        File file = new File(path);
+        if (file.exists()) {
+            file.delete();
+        }
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }

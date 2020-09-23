@@ -11,7 +11,7 @@
         server="http://localhost:7777/files"
         v-on:init="handleFilePondInit"/>
       </v-col>
-      <!-- <v-col cols="3">
+      <v-col cols="3">
         <v-textarea
           counter
           color="cyan"
@@ -19,7 +19,7 @@
           :rules="rules"
           :value="value"
         ></v-textarea>
-      </v-col> -->
+      </v-col>
     </v-row>
     <br>
     <v-row justify="center">

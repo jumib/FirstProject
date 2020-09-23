@@ -3,7 +3,7 @@
     <v-app-bar
     app
     clipped-right
-    color="#424242"
+    color="#000000"
     flat
     dense
     >
@@ -14,8 +14,8 @@
         <div class="home">
           <div id="header" v-if="isAuthorized">
             <v-btn text id="login" @click="onClickLogout" color="#FFFFFF">Logout</v-btn>
-            <v-btn text color="#FFFFFF">
-              <v-icon>mdi-bell</v-icon>
+            <v-btn text color="#81C784" @click="favor">
+              <v-icon>mdi-heart</v-icon>
             </v-btn>
           </div>
         <div id="header" v-else>
@@ -28,6 +28,8 @@
     <v-navigation-drawer
     v-model="drawer"
     app
+    dark
+    :src="require('/home/bitai/Downloads/side2.jpg')"
     >
       <div class="home">
         <div id="header" v-if="isAuthorized">
@@ -66,7 +68,7 @@
           <v-list dense align="center">
             <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title>Available after login</v-list-item-title>
+                  Available after login
                 </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -99,6 +101,9 @@ export default {
       this.logout()
       alert('Success Logout')
       this.$router.push({ name: 'MainPage' })
+    },
+    favor () {
+      this.$router.push({ name: 'Favor' })
     },
     ...mapActions(['logout'])
   },

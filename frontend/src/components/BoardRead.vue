@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-col cols="4">
-        <v-textarea :value="board.title" rows="1" readonly  label="title" row-height="25"></v-textarea>
+        <v-textarea :value="board.title" rows="1" readonly label="title" row-height="25"></v-textarea>
         <v-textarea :value="board.writer" rows="1" readonly  label="writer" row-height="25"></v-textarea>
         <v-textarea :value="board.content" rows="5" readonly  label="content" row-height="25"></v-textarea>
       </v-col>

@@ -1,20 +1,25 @@
 <template>
-  <v-container>
     <v-content id="content">
       <slot name="content" class="font">
         <v-row justify="center">
           <v-img
-            :src="require('/home/bitai/Downloads/main.jpeg')"
+            :src="require('/home/bitai/Downloads/99.jpeg')"
             width="1000"
-            height="850"
+            height="1000"
           />
         </v-row>
       </slot>
     </v-content>
-  </v-container>
 </template>
 
 <script>
+export default {
+  data () {
+    return {
+      like: 0
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

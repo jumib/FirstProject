@@ -19,7 +19,7 @@
       <v-col cols="12">
         <div class="my-2">
           <v-btn text depressed small
-                 @click="signup">Forgot your password?</v-btn>
+                 @click="forgot">Forgot your password?</v-btn>
           <br><br>
           <v-btn depressed small
             type="submit" color="green" dark>SIGN IN</v-btn>
@@ -50,6 +50,9 @@ export default {
     },
     signup () {
       this.$router.push({ name: 'AdminSetupPage' })
+    },
+    forgot () {
+      this.$router.push({ name: 'ForgotPwPage' })
     }
   }
 }
