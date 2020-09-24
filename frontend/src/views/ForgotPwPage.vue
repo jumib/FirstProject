@@ -1,13 +1,10 @@
 <template>
+  <v-container>
+    <v-content>
   <div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <v-container>
   <h2>안녕</h2>
-  </v-container>
   </div>
+   </v-content>
+    </v-container>
 </template>
 <script></script>

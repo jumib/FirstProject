@@ -1,17 +1,15 @@
 <template>
+  <v-container>
+    <v-content>
   <div class="ma-16" align="center">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <h1>Sign up</h1>
     <br>
     <br>
     <br>
     <admin-setup-form @submit="onSubmit"/>
   </div>
+   </v-content>
+    </v-container>
 </template>
 
 <script>

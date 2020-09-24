@@ -3,9 +3,9 @@
       <slot name="content" class="font">
         <v-row justify="center">
           <v-img
-            :src="require('/home/bitai/Downloads/99.jpeg')"
-            width="1000"
-            height="1000"
+            :src="require('/Users/jumibaek/Downloads/99.jpeg')"
+            width="1500"
+            height="900"
           />
         </v-row>
       </slot>

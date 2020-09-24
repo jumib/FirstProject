@@ -14,7 +14,6 @@ import ForgotPwPage from '../views/ForgotPwPage.vue'
 import Favor from '../views/Favor.vue'
 
 // 게시판
-import VuetifyBoardListPage from '../views/VuetifyBoardListPage.vue'
 import BoardListPage from '../views/BoardListPage.vue'
 import BoardRegisterPage from '../views/BoardRegisterPage.vue'
 import BoardModifyPage from '../views/BoardModifyPage.vue'
@@ -61,13 +60,6 @@ const routes = [
     name: 'MainPage',
     components: {
       default: MainPage
-    }
-  },
-  {
-    path: '/VuetifyBoardListPage',
-    name: 'VuetifyBoardListPage',
-    components: {
-      default: VuetifyBoardListPage
     }
   },
   {

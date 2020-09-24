@@ -1,6 +1,7 @@
 <template>
+  <v-container>
+    <v-content>
   <div class="ma-16" align="center">
-    <br>
     <h2>Read page</h2>
     <br>
     <br>
@@ -23,6 +24,8 @@
     <v-btn text depressed small @click="onDelete">Are you sure you want to delete?</v-btn>
     </v-row>
   </div>
+   </v-content>
+    </v-container>
 </template>
 
 <script>

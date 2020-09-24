@@ -1,17 +1,15 @@
 <template>
-  <div class="ma-16" align="center">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Log in</h1>
-    <br>
-    <br>
-    <br>
-    <login-form @submit="onSubmit" />
-  </div>
+  <v-container>
+    <v-content>
+      <div class="ma-16" align="center">
+        <h1>Log in</h1>
+        <br>
+        <br>
+        <br>
+        <login-form @submit="onSubmit" />
+      </div>
+    </v-content>
+  </v-container>
 </template>
 
 <script>

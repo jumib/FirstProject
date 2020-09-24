@@ -4,7 +4,7 @@
       <Header/>
     </div>
     <div id="content" >
-      <router-view/>
+          <router-view/>
     </div>
     <div id="footer">
       <Footer/>
@@ -25,14 +25,14 @@ export default {
 </script>
 
 <style scoped>
-#content {
-}
 #app {
   height: 0px;
 }
+#content {
+  height: 100%;
+}
 #footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
+  width:100%;
+  height: 100%;
 }
 </style>

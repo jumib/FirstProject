@@ -1,10 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.ClickedNews;
-import com.example.demo.entity.HomeNews;
 import com.example.demo.entity.News;
-import com.example.demo.repository.ClickedNewsRepository;
-import com.example.demo.repository.HomeNewsRepository;
 import com.example.demo.repository.NewsRepository;
 import lombok.extern.java.Log;
 import org.jsoup.Connection;
@@ -23,12 +19,6 @@ import java.util.List;
 public class NewsCrawlService {
     @Autowired
     NewsRepository newsRepository;
-
-    @Autowired
-    HomeNewsRepository homeNewsRepository;
-
-    @Autowired
-    ClickedNewsRepository clickedNewsRepository;
 
     private Document document;
 
@@ -56,44 +46,13 @@ public class NewsCrawlService {
         return newsRepository.findAll();
     }
 
-    public List<HomeNews> homeNewsFindAll() {
-        log.info("homeNewsFindAll()");
-
-        return homeNewsRepository.findAll();
-    }
-
-    public void crawlingHome() {
-        log.info("crawlingHome()");
-
-        homeNewsRepository.deleteAll();
-        document = connectUrl("https://www.ohou.se/projects?writer=self");
-        // document = connectUrl("https://www.naver.com/");
-
-        Elements total = document.select("strong.tit_thumb>a.link_txt");
-        Elements image = document.select("div.item_issue>a.link_thumb>img.thumb_g");
-
-        HomeNews homeNews = null;
-
-        for (int i = 0; i < total.size(); i++) {
-            homeNews = new HomeNews();
-            homeNews.setHomeNewsNo(String.valueOf(i + 1));
-            homeNews.setTitle(total.get(i).text());
-            homeNews.setAddress(total.get(i).attr("href"));
-            homeNews.setImage(image.get(i).attr("src"));
-            homeNewsRepository.save(homeNews);
-        }
-    }
-
     public void mainCrawler() {
         log.info("mainCrawler(): ");
 
         document = connectUrl("https://www.ohou.se/projects?writer=self");
-        // document = connectUrl("https://www.naver.com/");
         newsRepository.deleteAll();
 
         daumNews(document.select("div.virtualized-list.row>div.col-12.col-md-4>article.project-feed__item"));
-        // daumNews(document.select("div.theme_cont>div.group_theme>div.list_theme_wrap>ul.list_theme>li.theme_item>a.theme_info>strong"));
-        // div#themecast.sc_themecast.id_livinghome> 추가하면 크롤링 안됨
     }
 
     public void daumNews(Elements elements) {
@@ -110,26 +69,5 @@ public class NewsCrawlService {
 
             newsRepository.save(news);
         }
-    }
-
-    public ClickedNews crawlingOne(String newsNo) {
-        log.info("crawlingOne(): " + newsNo);
-
-        News news = newsRepository.findByNewsNo(newsNo);
-
-        ClickedNews clickedNews = new ClickedNews();
-
-        clickedNews.setTitle(news.getTitle());
-        clickedNews.setAddress(news.getAddress());
-        clickedNews.setClickedNewsNo(String.valueOf(clickedNewsRepository.findAll().size() + 1));
-
-        document = connectUrl(clickedNews.getAddress());
-
-        clickedNews.setDate(document.select("span.num_date").text());
-        clickedNews.setContents(document.select("div.article_view>section>:not(figure)").text());
-
-        clickedNewsRepository.save(clickedNews);
-
-        return clickedNews;
     }
 }

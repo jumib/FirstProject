@@ -1,6 +1,7 @@
 <template>
+  <v-container>
+    <v-content>
   <div class="ma-16" align="center">
-    <br>
     <h2>Edit page</h2>
     <br>
     <br>
@@ -8,6 +9,8 @@
     <board-modify-form v-if="board" :board="board" @submit="onSubmit"/>
     <p v-else>Loading ...</p>
   </div>
+   </v-content>
+    </v-container>
 </template>
 
 <script>

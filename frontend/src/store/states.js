@@ -14,8 +14,5 @@ export default {
   myinfo: null,
   // Crawling
   lists: [],
-  news: [],
-  homeNews: [],
-  savedNews: [],
-  savedNewsContents: []
+  news: []
 }

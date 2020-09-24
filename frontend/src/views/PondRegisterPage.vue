@@ -1,7 +1,7 @@
 <template>
+  <v-container>
+    <v-content>
  <div class="ma-16" align="center">
-    <br>
-    <br>
     <h2>Upload</h2>
     <br>
     <br>
@@ -9,6 +9,8 @@
       <PondRegisterForm/>
     </div>
  </div>
+  </v-content>
+   </v-container>
 </template>
 
 <script>

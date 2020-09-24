@@ -1,7 +1,7 @@
 <template>
+  <v-container>
+    <v-content>
  <div class="ma-16" align="center">
-       <br>
-       <br>
        <h2>Picture board</h2>
        <br>
        <br>
@@ -10,6 +10,8 @@
       </v-btn>
       <PondListForm/>
  </div>
+  </v-content>
+   </v-container>
 </template>
 
 <script>

@@ -1,12 +1,9 @@
 <template>
   <v-container>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <v-content>
     <h2>테스트입니당</h2>
+ </v-content>
   </v-container>
-</template>
+  </template>
 <script>
 </script>

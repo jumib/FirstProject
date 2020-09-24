@@ -25,13 +25,13 @@ import router from '../router'
 
 export default {
   async crawlFind ({ commit }) {
-    axios.get('http://localhost:7777/')
-      .then(({ data }) => {
-        commit('CRAWLSTART', data)
-        if (window.location.pathname !== '/ItemsPage') {
-          router.push('/ItemsPage')
-        }
-      })
+    axios.get('http://localhost:7777/').then(({ data }) => {
+      console.log('crawlFind')
+      commit('CRAWLSTART', data)
+      if (window.location.pathname !== '/ItemsPage') {
+        router.push('/ItemsPage')
+      }
+    })
   },
   fetchBoardList ({ commit }) {
     return axios.get('http://localhost:7777/boards')

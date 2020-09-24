@@ -2,6 +2,7 @@
   <v-footer
     dark
     padless
+    app
   >
     <v-card
       class="flex"

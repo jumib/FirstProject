@@ -1,11 +1,8 @@
 <template>
-  <div id="board" class="ma-16" align="center">
-        <br>
-        <br>
-        <h2>Info board</h2>
-        <br>
-        <br>
   <v-container>
+    <v-content>
+  <div id="board" class="ma-16" align="center">
+        <h2>Info board</h2>
     <v-col cols="8">
     <div class="ma-2" align="right">
         <v-btn text depressed small color="#81C784"
@@ -42,8 +39,9 @@
       <br>
     </v-card>
     </v-col>
-      </v-container>
   </div>
+   </v-content>
+    </v-container>
 </template>
 
 <script>
@@ -86,6 +84,7 @@ export default {
   methods: {
     start () {
       this.$store.dispatch('crawlFind')
+      console.log('start()')
     },
     nextPage () {
       this.pageNum += 1
