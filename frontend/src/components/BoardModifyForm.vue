@@ -2,7 +2,7 @@
   <div>
     <v-form @submit.prevent="onSubmit">
       <v-container>
-        <v-col cols="4">
+        <v-col cols="8">
         <v-text-field
           v-model="title"
           label="title"

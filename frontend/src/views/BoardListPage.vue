@@ -4,7 +4,6 @@
       <div id="board" class="ma-16" align="center">
           <h2>Text board</h2>
           <br>
-          <br>
         <board-list :boards="boards"/>
       </div>
     </v-content>
