@@ -3,7 +3,7 @@
     <v-content>
   <div id="board" class="ma-16" align="center">
         <h2>Info board</h2>
-    <v-col cols="8">
+    <v-col cols="10">
     <div class="ma-2" align="right">
         <v-btn text depressed small color="#81C784"
              @click="start()">A collection of living articles by topic to read today</v-btn>
@@ -30,7 +30,7 @@
                 @click="prevPage" class="page-btn" depressed small>
           <v-icon>mdi-chevron-double-left</v-icon>
         </v-btn>
-        <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} </span>
+        <span class="page-count" v-if="lists != 0">{{ pageNum + 1 }} / {{ pageCount }} </span>
         <v-btn text :disabled="pageNum >= pageCount - 1"
                 @click="nextPage" class="page-btn" depressed small>
           <v-icon>mdi-chevron-double-right</v-icon>

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-  <v-col cols="8">
+  <v-col cols="10">
   <div class="ma-4" align="right">
     <v-btn depressed small dark
     @click="$router.push('BoardRegisterPage')">register</v-btn>

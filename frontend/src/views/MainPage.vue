@@ -3,7 +3,7 @@
       <slot name="content" class="font">
         <v-row justify="center">
           <v-img
-            :src="require('/Users/jumibaek/Downloads/99.jpeg')"
+            :src="require('/Users/jumibaek/Downloads/miniproj/99.jpeg')"
             width="1500"
             height="900"
           />

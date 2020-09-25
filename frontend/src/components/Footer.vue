@@ -3,11 +3,13 @@
     dark
     padless
     app
+    color="#000000"
   >
     <v-card
       class="flex"
       flat
       tile
+      color="#000000"
     >
       <v-card-title>
         <strong class="subheading">Get connected with us on social networks!</strong>

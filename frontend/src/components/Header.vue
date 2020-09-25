@@ -29,7 +29,7 @@
     v-model="drawer"
     app
     dark
-    :src="require('/Users/jumibaek/Downloads/side3.jpeg')"
+    :src="require('/Users/jumibaek/Downloads/miniproj/side3.jpeg')"
     >
       <div class="home">
         <div id="header" v-if="isAuthorized">
@@ -56,7 +56,7 @@
           <v-list dense>
             <v-list-item @click.stop="left = !left">
               <v-list-item-action>
-                <v-icon>mdi-waze</v-icon>
+                <v-icon>mdi-island</v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title @click="category">Information Board</v-list-item-title>

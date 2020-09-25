@@ -1,22 +1,25 @@
 <template>
   <v-container fluid>
     <v-content>
-      <v-row dense>
+      <v-row>
         <v-col
           v-for="card in cards"
           :key="card.title"
           :cols="card.flex"
         >
-          <v-card>
             <v-img
               :src="card.src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
-            >
-              <!-- <v-btn icon color="white"><v-icon>mdi-heart</v-icon></v-btn> -->
+              class="align-end"
+              height="300px"
+              width="300px"
+              @click ="card.clicked = !card.clicked"
+              >
+              <div align="right">
+                <v-btn depressed large icon>
+                    <v-icon :color="card.clicked ? '#66BB6A' : ''">mdi-heart</v-icon>
+                </v-btn>
+              </div>
             </v-img>
-          </v-card>
         </v-col>
       </v-row>
     </v-content>
@@ -24,18 +27,22 @@
 </template>
 
 <script>
+
 export default {
-  data: () => ({
-    cards: [
-      { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 3 },
-      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
-      { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
-      { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
-      { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 3 },
-      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
-      { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
-      { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 }
-    ]
-  })
+  data () {
+    return {
+      cards: [
+        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4, clicked: false },
+        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4, clicked: false },
+        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, clicked: false },
+        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, clicked: false },
+        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4, clicked: false },
+        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4, clicked: false },
+        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, clicked: false },
+        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, clicked: false },
+        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, clicked: false }
+      ]
+    }
+  }
 }
 </script>

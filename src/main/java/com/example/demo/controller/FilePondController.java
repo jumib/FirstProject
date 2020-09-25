@@ -19,7 +19,7 @@ public class FilePondController {
 
     @PostMapping("/files")
     public ResponseEntity<String> create(@RequestParam("test") MultipartFile mfile) throws Exception {
-        String savepath = "/home/bitai/save";
+        String savepath = "/Users/jumibaek/Desktop/savefiles";
         String filename = mfile.getOriginalFilename();
         File folder = new File(savepath);
 
@@ -45,26 +45,3 @@ public class FilePondController {
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }
-
-//    response.setContentType("text/plain");
-//    response.setCharacterEncoding("UTF-8");
-////    MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-//    Iterator<String> itr =multipartHttpServletRequest.getFileNames();
-//    MultipartFile mfile = null;
-//        while(itr.hasNext()) {
-//        String filename = itr.next();
-//        System.out.println(filename);
-//        mfile = multipartHttpServletRequest.getFile(filename);
-//        String origName;
-//        origName=new String(mfile.getOriginalFilename());
-//        if ("".equals(origName))
-//        {
-//            continue;
-//        }
-//        String path = "c://";
-//        File serverFile = new File(path +origName );
-//        mfile.transferTo(serverFile);
-//    }
-//
-//        response.getWriter().print("12345")
-
