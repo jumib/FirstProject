@@ -29,7 +29,7 @@
     v-model="drawer"
     app
     dark
-    :src="require('/Users/jumibaek/Downloads/miniproj/side3.jpeg')"
+    :src="require('@/assets/99.jpeg')"
     >
       <div class="home">
         <div id="header" v-if="isAuthorized">
